@@ -10,9 +10,6 @@
         <link rel="stylesheet" type="text/css" href="css/qgis2web.css">
         <link rel="stylesheet" href="css/MarkerCluster.css" />
         <link rel="stylesheet" href="css/MarkerCluster.Default.css" />
-        <link rel="stylesheet" href="http://k4r573n.github.io/leaflet-control-osm-geocoder/Control.OSMGeocoder.css" />
-        <link rel="stylesheet" href="css/leaflet.draw.css" />
-        <link rel="stylesheet" href="css/leaflet.measurecontrol.css" />
         <style>
         html, body, #map {
             width: 100%;
@@ -32,27 +29,17 @@
         <script src="js/OSMBuildings-Leaflet.js"></script>
         <script src="js/leaflet-hash.js"></script>
         <script src="js/Autolinker.min.js"></script>
-        <script src="http://k4r573n.github.io/leaflet-control-osm-geocoder/Control.OSMGeocoder.js"></script>
-        <script src="js/leaflet.draw.js"></script>
-        <script src="js/leaflet.measurecontrol.js"></script>
         <script src="js/leaflet.markercluster.js"></script>
-        <script src="data/NCOMMUNEBDCR320.js"></script>
-        <script src="data/DEPPetab1D2Dreg321.js"></script>
+        <script src="data/testpourpierrotgeocoded0.js"></script>
         <script>
-        var highlightLayer;
-        function highlightFeature(e) {
-            highlightLayer = e.target;
-            highlightLayer.openPopup();
-        }
         L.ImageOverlay.include({
             getBounds: function () {
                 return this._bounds;
             }
         });
         var map = L.map('map', {
-            measureControl:true,
-            zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[48.8298066141,1.10524154845],[51.1169726253,4.58871112424]]);
+            zoomControl:true, maxZoom:20, minZoom:1
+        }).fitBounds([[49.7972514099,1.37048640527],[50.2514010089,2.21881018179]]);
         var hash = new L.Hash(map);
         map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
         var feature_group = new L.featureGroup([]);
@@ -60,7 +47,7 @@
         var raster_group = new L.LayerGroup([]);
         var basemap0 = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
-            maxZoom: 28
+            maxZoom: 20
         });
         basemap0.addTo(map);
         function setBounds() {
@@ -74,197 +61,106 @@
             ];
           });
         }
-        function pop_NCOMMUNEBDCR320(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
-                    }
-                },
-                mouseover: highlightFeature,
-            });
+        function pop_testpourpierrotgeocoded0(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['ID'] !== null ? Autolinker.link(String(feature.properties['ID'])) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['nom_dest'] !== null ? Autolinker.link(String(feature.properties['nom_dest'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['NOM_COMM'] !== null ? Autolinker.link(String(feature.properties['NOM_COMM'])) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['Num'] !== null ? Autolinker.link(String(feature.properties['Num'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['INSEE_COMM'] !== null ? Autolinker.link(String(feature.properties['INSEE_COMM'])) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['Type_voie_b'] !== null ? Autolinker.link(String(feature.properties['Type_voie_b'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['STATUT'] !== null ? Autolinker.link(String(feature.properties['STATUT'])) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['libelle_Voie'] !== null ? Autolinker.link(String(feature.properties['libelle_Voie'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['X_COMMUNE'] !== null ? Autolinker.link(String(feature.properties['X_COMMUNE'])) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['CP'] !== null ? Autolinker.link(String(feature.properties['CP'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Y_COMMUNE'] !== null ? Autolinker.link(String(feature.properties['Y_COMMUNE'])) : '') + '</td>\
+                        <td colspan="2"><strong>Ville</strong><br />' + (feature.properties['Ville'] !== null ? Autolinker.link(String(feature.properties['Ville'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['SUPERFICIE'] !== null ? Autolinker.link(String(feature.properties['SUPERFICIE'])) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['JOURS'] !== null ? Autolinker.link(String(feature.properties['JOURS'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['POPULATION'] !== null ? Autolinker.link(String(feature.properties['POPULATION'])) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['qté'] !== null ? Autolinker.link(String(feature.properties['qté'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['INSEE_ARR'] !== null ? Autolinker.link(String(feature.properties['INSEE_ARR'])) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['latitude'] !== null ? Autolinker.link(String(feature.properties['latitude'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['NOM_DEPT'] !== null ? Autolinker.link(String(feature.properties['NOM_DEPT'])) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['longitude'] !== null ? Autolinker.link(String(feature.properties['longitude'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['INSEE_DEPT'] !== null ? Autolinker.link(String(feature.properties['INSEE_DEPT'])) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['result_label'] !== null ? Autolinker.link(String(feature.properties['result_label'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['NOM_REGION'] !== null ? Autolinker.link(String(feature.properties['NOM_REGION'])) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['result_score'] !== null ? Autolinker.link(String(feature.properties['result_score'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['INSEE_REG'] !== null ? Autolinker.link(String(feature.properties['INSEE_REG'])) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['result_type'] !== null ? Autolinker.link(String(feature.properties['result_type'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['result_id'] !== null ? Autolinker.link(String(feature.properties['result_id'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['result_housenumber'] !== null ? Autolinker.link(String(feature.properties['result_housenumber'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['result_name'] !== null ? Autolinker.link(String(feature.properties['result_name'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['result_street'] !== null ? Autolinker.link(String(feature.properties['result_street'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['result_postcode'] !== null ? Autolinker.link(String(feature.properties['result_postcode'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['result_city'] !== null ? Autolinker.link(String(feature.properties['result_city'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['result_context'] !== null ? Autolinker.link(String(feature.properties['result_context'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['result_citycode'] !== null ? Autolinker.link(String(feature.properties['result_citycode'])) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent);
         }
 
-        function style_NCOMMUNEBDCR320() {
+        function style_testpourpierrotgeocoded0() {
             return {
-                pane: 'pane_NCOMMUNEBDCR320',
+                pane: 'pane_testpourpierrotgeocoded0',
+                radius: 4.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
-                dashArray: '1,5',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-            }
-        }
-        map.createPane('pane_NCOMMUNEBDCR320');
-        map.getPane('pane_NCOMMUNEBDCR320').style.zIndex = 600;
-        map.getPane('pane_NCOMMUNEBDCR320').style['mix-blend-mode'] = 'normal';
-    var layer_NCOMMUNEBDCR320 = new L.geoJson(json_NCOMMUNEBDCR320, {
-        pane: 'pane_NCOMMUNEBDCR320',
-        onEachFeature: pop_NCOMMUNEBDCR320,
-        style: style_NCOMMUNEBDCR320
-    });
-        bounds_group.addLayer(layer_NCOMMUNEBDCR320);
-        function pop_DEPPetab1D2Dreg321(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
-                    }
-                },
-                mouseover: highlightFeature,
-            });
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['field_1'] !== null ? Autolinker.link(String(feature.properties['field_1'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['numero_uai'] !== null ? Autolinker.link(String(feature.properties['numero_uai'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['appellation_officielle'] !== null ? Autolinker.link(String(feature.properties['appellation_officielle'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>denomination_principale</strong><br />' + (feature.properties['denomination_principale'] !== null ? Autolinker.link(String(feature.properties['denomination_principale'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['patronyme_uai'] !== null ? Autolinker.link(String(feature.properties['patronyme_uai'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['secteur_public_prive_libe'] !== null ? Autolinker.link(String(feature.properties['secteur_public_prive_libe'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['adresse_uai'] !== null ? Autolinker.link(String(feature.properties['adresse_uai'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['lieu_dit_uai'] !== null ? Autolinker.link(String(feature.properties['lieu_dit_uai'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['boite_postale_uai'] !== null ? Autolinker.link(String(feature.properties['boite_postale_uai'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['code_postal_uai'] !== null ? Autolinker.link(String(feature.properties['code_postal_uai'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['localite_acheminement_uai'] !== null ? Autolinker.link(String(feature.properties['localite_acheminement_uai'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['coordonnee_x'] !== null ? Autolinker.link(String(feature.properties['coordonnee_x'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['coordonnee_y'] !== null ? Autolinker.link(String(feature.properties['coordonnee_y'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['appariement'] !== null ? Autolinker.link(String(feature.properties['appariement'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['localisation'] !== null ? Autolinker.link(String(feature.properties['localisation'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['nature_uai'] !== null ? Autolinker.link(String(feature.properties['nature_uai'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['nature_uai_libe'] !== null ? Autolinker.link(String(feature.properties['nature_uai_libe'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['etat_etablissement'] !== null ? Autolinker.link(String(feature.properties['etat_etablissement'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['DEP'] !== null ? Autolinker.link(String(feature.properties['DEP'])) : '') + '</td>\
-                    </tr>\
-                </table>';
-            layer.bindPopup(popupContent);
-        }
-
-        function style_DEPPetab1D2Dreg321() {
-            return {
-                pane: 'pane_DEPPetab1D2Dreg321',
-                radius: 8.0,
-                opacity: 1,
-                color: 'rgba(227,26,28,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1,
                 fillOpacity: 1,
-                fillColor: 'rgba(239,0,0,1.0)',
+                fillColor: 'rgba(93,131,84,1.0)',
             }
         }
-        map.createPane('pane_DEPPetab1D2Dreg321');
-        map.getPane('pane_DEPPetab1D2Dreg321').style.zIndex = 601;
-        map.getPane('pane_DEPPetab1D2Dreg321').style['mix-blend-mode'] = 'normal';
-        var layer_DEPPetab1D2Dreg321 = new L.geoJson(json_DEPPetab1D2Dreg321, {
-            pane: 'pane_DEPPetab1D2Dreg321',
-            onEachFeature: pop_DEPPetab1D2Dreg321,
+        map.createPane('pane_testpourpierrotgeocoded0');
+        map.getPane('pane_testpourpierrotgeocoded0').style.zIndex = 600;
+        map.getPane('pane_testpourpierrotgeocoded0').style['mix-blend-mode'] = 'normal';
+        var layer_testpourpierrotgeocoded0 = new L.geoJson(json_testpourpierrotgeocoded0, {
+            pane: 'pane_testpourpierrotgeocoded0',
+            onEachFeature: pop_testpourpierrotgeocoded0,
             pointToLayer: function (feature, latlng) {
-                return L.circleMarker(latlng, style_DEPPetab1D2Dreg321(feature))
+                return L.circleMarker(latlng, style_testpourpierrotgeocoded0(feature))
             }
         });
-        var cluster_DEPPetab1D2Dreg321 = new L.MarkerClusterGroup({showCoverageOnHover: false});
-        cluster_DEPPetab1D2Dreg321.addLayer(layer_DEPPetab1D2Dreg321);
+        var cluster_testpourpierrotgeocoded0 = new L.MarkerClusterGroup({showCoverageOnHover: false});
+        cluster_testpourpierrotgeocoded0.addLayer(layer_testpourpierrotgeocoded0);
 
-        bounds_group.addLayer(layer_DEPPetab1D2Dreg321);
-        cluster_DEPPetab1D2Dreg321.addTo(map);
+        bounds_group.addLayer(layer_testpourpierrotgeocoded0);
+        cluster_testpourpierrotgeocoded0.addTo(map);
         raster_group.addTo(map);
         feature_group.addTo(map);
-        var osmGeocoder = new L.Control.OSMGeocoder({
-            collapsed: false,
-            position: 'topright',
-            text: 'Search',
-        });
-        osmGeocoder.addTo(map);
-        var baseMaps = {'OSM': basemap0};
-        L.control.layers(baseMaps,{'<img src="legend/DEPPetab1D2Dreg321.png" /> DEPP-etab-1D2D_reg32': cluster_DEPPetab1D2Dreg321,'<img src="legend/NCOMMUNEBDCR320.png" /> N_COMMUNE_BDC_R32': layer_NCOMMUNEBDCR320,},{collapsed:false}).addTo(map);
         setBounds();
         </script>
     </body>

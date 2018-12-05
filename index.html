@@ -30,7 +30,7 @@
         <script src="js/leaflet-hash.js"></script>
         <script src="js/Autolinker.min.js"></script>
         <script src="js/leaflet.markercluster.js"></script>
-        <script src="data/testpourpierrotgeocoded0.js"></script>
+        <script src="data/test51app0.js"></script>
         <script>
         L.ImageOverlay.include({
             getBounds: function () {
@@ -39,7 +39,7 @@
         });
         var map = L.map('map', {
             zoomControl:true, maxZoom:20, minZoom:1
-        }).fitBounds([[49.7972514099,1.37048640527],[50.2514010089,2.21881018179]]);
+        }).fitBounds([[47.7954231885,2.73517376997],[49.7501485454,6.56756411391]]);
         var hash = new L.Hash(map);
         map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
         var feature_group = new L.featureGroup([]);
@@ -61,78 +61,66 @@
             ];
           });
         }
-        function pop_testpourpierrotgeocoded0(feature, layer) {
+        function pop_test51app0(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['nom_dest'] !== null ? Autolinker.link(String(feature.properties['nom_dest'])) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['field_1'] !== null ? Autolinker.link(String(feature.properties['field_1'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Num'] !== null ? Autolinker.link(String(feature.properties['Num'])) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['Commune_id'] !== null ? Autolinker.link(String(feature.properties['Commune_id'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Type_voie_b'] !== null ? Autolinker.link(String(feature.properties['Type_voie_b'])) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['Dépôt'] !== null ? Autolinker.link(String(feature.properties['Dépôt'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['libelle_Voie'] !== null ? Autolinker.link(String(feature.properties['libelle_Voie'])) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['Titre_lbl'] !== null ? Autolinker.link(String(feature.properties['Titre_lbl'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['CP'] !== null ? Autolinker.link(String(feature.properties['CP'])) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['Edition_lbl'] !== null ? Autolinker.link(String(feature.properties['Edition_lbl'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>Ville</strong><br />' + (feature.properties['Ville'] !== null ? Autolinker.link(String(feature.properties['Ville'])) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['PDistrib_id'] !== null ? Autolinker.link(String(feature.properties['PDistrib_id'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['JOURS'] !== null ? Autolinker.link(String(feature.properties['JOURS'])) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['PDistrib_nom'] !== null ? Autolinker.link(String(feature.properties['PDistrib_nom'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['qté'] !== null ? Autolinker.link(String(feature.properties['qté'])) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['Commune_lbl'] !== null ? Autolinker.link(String(feature.properties['Commune_lbl'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['latitude'] !== null ? Autolinker.link(String(feature.properties['latitude'])) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['nom'] !== null ? Autolinker.link(String(feature.properties['nom'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['longitude'] !== null ? Autolinker.link(String(feature.properties['longitude'])) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['codesPostaux.0'] !== null ? Autolinker.link(String(feature.properties['codesPostaux.0'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['result_label'] !== null ? Autolinker.link(String(feature.properties['result_label'])) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['centre.type'] !== null ? Autolinker.link(String(feature.properties['centre.type'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['result_score'] !== null ? Autolinker.link(String(feature.properties['result_score'])) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['centre.coordinates.0'] !== null ? Autolinker.link(String(feature.properties['centre.coordinates.0'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['result_type'] !== null ? Autolinker.link(String(feature.properties['result_type'])) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['centre.coordinates.1'] !== null ? Autolinker.link(String(feature.properties['centre.coordinates.1'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['result_id'] !== null ? Autolinker.link(String(feature.properties['result_id'])) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['codeDepartement'] !== null ? Autolinker.link(String(feature.properties['codeDepartement'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['result_housenumber'] !== null ? Autolinker.link(String(feature.properties['result_housenumber'])) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['departement.code'] !== null ? Autolinker.link(String(feature.properties['departement.code'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['result_name'] !== null ? Autolinker.link(String(feature.properties['result_name'])) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['departement.nom'] !== null ? Autolinker.link(String(feature.properties['departement.nom'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['result_street'] !== null ? Autolinker.link(String(feature.properties['result_street'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['result_postcode'] !== null ? Autolinker.link(String(feature.properties['result_postcode'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['result_city'] !== null ? Autolinker.link(String(feature.properties['result_city'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['result_context'] !== null ? Autolinker.link(String(feature.properties['result_context'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['result_citycode'] !== null ? Autolinker.link(String(feature.properties['result_citycode'])) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['codesPostaux.1'] !== null ? Autolinker.link(String(feature.properties['codesPostaux.1'])) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent);
         }
 
-        function style_testpourpierrotgeocoded0() {
+        function style_test51app0() {
             return {
-                pane: 'pane_testpourpierrotgeocoded0',
+                pane: 'pane_test51app0',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
@@ -141,24 +129,24 @@
                 lineJoin: 'miter',
                 weight: 1,
                 fillOpacity: 1,
-                fillColor: 'rgba(93,131,84,1.0)',
+                fillColor: 'rgba(197,95,196,1.0)',
             }
         }
-        map.createPane('pane_testpourpierrotgeocoded0');
-        map.getPane('pane_testpourpierrotgeocoded0').style.zIndex = 600;
-        map.getPane('pane_testpourpierrotgeocoded0').style['mix-blend-mode'] = 'normal';
-        var layer_testpourpierrotgeocoded0 = new L.geoJson(json_testpourpierrotgeocoded0, {
-            pane: 'pane_testpourpierrotgeocoded0',
-            onEachFeature: pop_testpourpierrotgeocoded0,
+        map.createPane('pane_test51app0');
+        map.getPane('pane_test51app0').style.zIndex = 600;
+        map.getPane('pane_test51app0').style['mix-blend-mode'] = 'normal';
+        var layer_test51app0 = new L.geoJson(json_test51app0, {
+            pane: 'pane_test51app0',
+            onEachFeature: pop_test51app0,
             pointToLayer: function (feature, latlng) {
-                return L.circleMarker(latlng, style_testpourpierrotgeocoded0(feature))
+                return L.circleMarker(latlng, style_test51app0(feature))
             }
         });
-        var cluster_testpourpierrotgeocoded0 = new L.MarkerClusterGroup({showCoverageOnHover: false});
-        cluster_testpourpierrotgeocoded0.addLayer(layer_testpourpierrotgeocoded0);
+        var cluster_test51app0 = new L.MarkerClusterGroup({showCoverageOnHover: false});
+        cluster_test51app0.addLayer(layer_test51app0);
 
-        bounds_group.addLayer(layer_testpourpierrotgeocoded0);
-        cluster_testpourpierrotgeocoded0.addTo(map);
+        bounds_group.addLayer(layer_test51app0);
+        cluster_test51app0.addTo(map);
         raster_group.addTo(map);
         feature_group.addTo(map);
         setBounds();
